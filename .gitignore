@@ -4,6 +4,7 @@
 # Compiled Object files
 *.slo
 *.lo
+obj_files/
 *.o
 *.obj
 

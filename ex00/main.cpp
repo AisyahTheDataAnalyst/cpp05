@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:05 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/10/30 19:50:39 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/10/31 09:10:50 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 void	border(std::string title)
 {
-	std::cout << "=======================================================\n";
+	std::cout << BLUE << "\n============================================================\n";
 	std::cout << title << "\n";
-	std::cout << "=======================================================" << std::endl;
+	std::cout << "============================================================" << RESET << std::endl;
 }
 
 int main()
 {
 	{
-		border("No any exceptions thrown");
-		Bureaucrat a, b;
-		Bureaucrat c("Kaichou", 2), d("Ass. Director", 3);
-		
 		try
 		{
+			border("No exception thrown");
+			Bureaucrat a, b;
+			Bureaucrat c("Kaichou", 2), d("Ass. Director", 3);
 			std::cout << "Before grade adjustments:" << std::endl;
 			std::cout << a << b << c << d << std::endl;
 			std::cout << "After grade adjustments:\n";
@@ -35,7 +34,8 @@ int main()
 			b.incrementGrade();
 			c.decrementGrade();
 			d.decrementGrade();
-			std::cout << a << b << c << d << std::endl;
+			std::cout << a << b << c << d;
+			std::cout << "Will reach here" << std::endl;
 		}
 		catch (std::exception &e)
 		{
@@ -43,26 +43,62 @@ int main()
 		}
 	}
 	{
-			{
-		border("No any exceptions thrown");
-		Bureaucrat a, b;
-		Bureaucrat c("Kaichou", 2), d("Ass. Director", 3);
-		
 		try
 		{
-			std::cout << "Before grade adjustments:\n";
-			std::cout << a << b << c << d << std::endl;
-			std::cout << "After grade adjustments:\n";
+			border("Exceptions thrown after grade increment (too high)");
+			Bureaucrat a("Kaichou", 1);
+			std::cout << "Before grade increment:\n";
+			std::cout << a;
+			std::cout << "After grade increment:\n";
 			a.incrementGrade();
-			b.incrementGrade();
-			c.decrementGrade();
-			d.decrementGrade();
-			std::cout << a << b << c << d << std::endl;
+			std::cout << a;
+			std::cout << "Won't reach here" << std::endl;
 		}
 		catch (std::exception &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
 	}
+	{
+		try
+		{
+			border("Exceptions thrown after grade decrement (too low)");
+			Bureaucrat a;
+			std::cout << "Before grade decrement:\n";
+			std::cout << a;
+			std::cout << "After grade decrement:\n";
+			a.decrementGrade();
+			std::cout << a;
+			std::cout << "Won't reach here" << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
+	{
+		try
+		{
+			border("Exceptions thrown upon instances creation (grade too high)");
+			Bureaucrat a("Kaichou", 0);
+			std::cout << "Wont reach here" << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+	{
+		try
+		{
+			border("Exceptions thrown upon instances creation (grade too low)");
+			Bureaucrat a("Andy", 170);
+			std::cout << "Wont reach here" << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+	return 0;
 }
