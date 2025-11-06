@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:07 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/10/31 09:25:30 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/06 14:10:15 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
-# include <exception>
 # include <iostream>
+# include <exception>
+# include "Form.hpp"
+
 # define BLUE "\033[1;34m"
+# define YELLOW "\033[1;33m"
 # define RESET "\033[0m"
+
+class Form;
 
 class Bureaucrat
 {
@@ -38,8 +43,9 @@ class Bureaucrat
 		const int &getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form) const;
 
-		// exception classes
+		//exception classes
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -51,7 +57,7 @@ class Bureaucrat
 			public:
 				const char *what() const throw();
 		};
-	};
+};
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &value);
 

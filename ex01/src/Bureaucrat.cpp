@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:10 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 15:22:07 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:23:02 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 // OCF
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {}
+Bureaucrat::Bureaucrat()
+: _name("Default"), _grade(150)
+{}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 : _name(name), _grade(grade)
@@ -68,6 +70,7 @@ void Bureaucrat::decrementGrade()
 
 
 // 3. exceptions
+
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade too high";
@@ -79,10 +82,28 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 
-// 4. ostream << operator overload on Bureaucrat class
+// 4. action
+
+// form parameter cannot be const coz we need to be change its _isItSigned
+void Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " couldn’t sign " << form.getFormName() << " because " << e.what() << "." << std::endl;
+		return ;
+	}
+	std::cout << this->_name << " signed " << form.getFormName() << "." << std::endl;
+}
+
+
+// 5. ostream << operator overload for class Bureaucrat
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &value)
 {
-	out << value.getName() << ", bureaucrat grade " << value.getGrade() << "." << '\n';
+	out << value.getName() << ", bureaucrat grade " << value.getGrade() << "." << std::endl;
 	return out;
 }
