@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 10:50:15 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/07 11:05:09 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int main()
 	{
 		border("Test1: No exception thrown", BLUE);
 
-		ShrubberyCreationForm fB("Kindergarten");
+		ShrubberyCreationForm fB("Treehouse");
 		RobotomyRequestForm fR("Pinocchio");
 		PresidentialPardonForm fP("Leanord");
 		Bureaucrat bA("Andy", 1);
@@ -81,5 +81,33 @@ int main()
 		std::cerr << errMsg.what() << '\n';
 	}
 	
+	try
+	{
+		border("Test2: Exceptions thrown", BLUE);
+
+		ShrubberyCreationForm fB("Treehouse");
+		RobotomyRequestForm fR("Pinocchio");
+		PresidentialPardonForm fP("Leanord");
+		Bureaucrat bA("Andy", 1);
+		Bureaucrat bB("Bob", 15);
+		Bureaucrat bC("Cindy", 60);
+		Bureaucrat bD("Donald", 140);
+		// Bureaucrat bE("Eleanor", 170); // grade too low
+		// Bureaucrat bF("Fiona", -2); // grade too high
+
+		// bD.signForm(fB);
+		bC.executeForm(fB); // not signed
+		std::cout << '\n';
+		bC.signForm(fR);
+		bD.executeForm(fR); // grade too low, should ask bB instead
+		std::cout << '\n';
+		bC.signForm(fP); // grade too low, should ask bB instead
+		bA.executeForm(fP); // not signed yet
+		std::cout << "\nWill reach this text here because signForm and executeForm has their own catch" << std::endl;
+	}
+	catch (std::exception &errMsg)
+	{
+		std::cerr << errMsg.what() << '\n';
+	}
 	return 0;
 }
