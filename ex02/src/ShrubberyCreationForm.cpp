@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:33:07 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/18 18:54:36 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:11:18 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,17 @@ const std::string &ShrubberyCreationForm::getTarget() const { return this->_targ
 
 //3. action
 
+// std::ofstream
+// - Purpose: Used to write data to files.
+// - Full name: output file stream.
+// std::ifstream
+// - Purpose: Used to read data from files.
+// - Full name: input file stream.
+// std::fstream
+// - can do both write and read file
 void ShrubberyCreationForm::action() const
 {
-	std::cout << GREEN << "Creating a file " << this->_target << "_shrubbery for a moment...\n";
+	std::cout << GREEN << "Creating a file " << this->_target << "_shrubbery for a moment...\n" << RESET;
 	
 	std::string filename;
 	filename = this->_target + "_shrubbery";
@@ -52,7 +60,7 @@ void ShrubberyCreationForm::action() const
 	file.open(filename.c_str());
 	if (!file.is_open())
 	{
-		std::cerr << filename << " failed to open.\n";
+		std::cerr << RED << filename << " failed to open.\n" << RESET;
 		return ; 
 	}
 
@@ -78,7 +86,7 @@ void ShrubberyCreationForm::action() const
 	<< std::endl;
 
 	file.close();
-	std::cout << this->_target << "_shrubbery file created!" << RESET << std::endl;
+	std::cout << GREEN << this->_target << "_shrubbery file created!" << RESET << std::endl;
 }
 
 
