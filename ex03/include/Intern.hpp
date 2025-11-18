@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 11:07:12 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 14:43:59 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:58:04 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ class Intern
 		~Intern();
 		
 		//method
-		AForm *makeForm(std::string form, std::string target) const;
-		// AForm *makeSCForm(std::string target);
-		// AForm *makeRRForm(std::string target);
-		// AForm *makePPForm(std::string target);
+		AForm *makeForm(const std::string form, const std::string target) const;
 };
 #endif

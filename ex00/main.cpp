@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:05 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 14:23:10 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:43:05 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int main()
 		std::cout << a << b << c << d << std::endl;
 		std::cout << "Will reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &errMsg)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 
 	try
@@ -52,9 +52,13 @@ int main()
 		std::cout << a;
 		std::cout << "Won't reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch ( const Bureaucrat::GradeTooHighException errMsg) // or // catch ( const Bureaucrat::GradeTooHighException &errMsg)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << "Caught nested exception: " << errMsg.what() << '\n' << RESET;
+	}
+	catch (const std::exception &errMsg)
+	{
+		std::cerr << RED << "Caught exception in general: " << errMsg.what() << '\n' << RESET;
 	}
 
 	try
@@ -68,9 +72,13 @@ int main()
 		std::cout << a;
 		std::cout << "Won't reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch ( const Bureaucrat::GradeTooLowException errMsg) // or // catch ( const Bureaucrat::GradeTooLowException &errMsg)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << "Caught nested exception: " << errMsg.what() << '\n' << RESET;
+	}
+	catch (const std::exception &errMsg)
+	{
+		std::cerr << RED << "Caught exception in general: " << errMsg.what() << '\n' << RESET;
 	}
 
 	try
@@ -79,9 +87,9 @@ int main()
 		Bureaucrat a("Kaichou", 0);
 		std::cout << "Wont reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &errMsg)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 
 	try
@@ -90,9 +98,9 @@ int main()
 		Bureaucrat a("Andy", 170);
 		std::cout << "Wont reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &errMsg)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 
 	return 0;

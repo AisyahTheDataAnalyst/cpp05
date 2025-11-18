@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 15:18:08 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:06:54 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int main()
 		// Bureaucrat bF("Frozone", -1);
 		// std::cout << bF;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n' << RESET;
 	}
 	
 	try
@@ -82,9 +82,9 @@ int main()
 		bA.signForm(a);
 		bA.signForm(c);
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n' << RESET;
 	}
 
 	try
@@ -101,17 +101,17 @@ int main()
 
 		std::cout << "1: ";
 		b.beSigned(bB);
-		std::cout << "ok!\n2: ";
+		std::cout << GREEN << "ok!\n" << RESET << "2: "; 
 		b.beSigned(bE); // exception here will caught by int main's catch. will stop here	
-		std::cout << "ok!\n3: ";
+		std::cout << GREEN << "ok!\n" << RESET << "3: ";
 		d.beSigned(bB);
-		std::cout << "ok!\n4: ";
+		std::cout << GREEN << "ok!\n" << RESET << "4: ";
 		d.beSigned(bE);	// exception here will caught by int main's catch. will stop here
-		std::cout << "ok!" << std::endl;
+		std::cout << GREEN << "ok!" << RESET << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n' << RESET;
 	}
 
 	try
@@ -132,9 +132,9 @@ int main()
 		bE.signForm(d); // have exception but already been caught within this function
 		std::cout << "Will reach this text here" << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n' << RESET;
 	}
 
 	return 0;

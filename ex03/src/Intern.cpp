@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 11:06:59 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 15:03:17 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:50:59 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Intern::~Intern() {}
 
 //method
 
-AForm *Intern::makeForm(std::string form, std::string target) const
+AForm *Intern::makeForm(const std::string form, const std::string target) const
 {
 	std::string formNames[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
 	int i = 0;
@@ -58,7 +58,7 @@ AForm *Intern::makeForm(std::string form, std::string target) const
 			std::cout << "Intern creates " << form << "." << std::endl;;
 			return new PresidentialPardonForm(target);
 		default:
-			std::cerr << "Form name is invalid.\n";
+			std::cerr << RED << "Form name is invalid.\n" << RESET;
 			return NULL;
 	}
 }

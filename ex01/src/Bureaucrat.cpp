@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:10 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 15:23:02 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:55:56 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ void Bureaucrat::signForm(Form &form) const
 	{
 		form.beSigned(*this);
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
-		std::cout << this->_name << " couldn’t sign " << form.getFormName() << " because " << e.what() << "." << std::endl;
+		std::cout << RED << this->_name << " couldn’t sign " << form.getFormName() << " because " << e.what() << "." << RESET << std::endl;
 		return ;
 	}
-	std::cout << this->_name << " signed " << form.getFormName() << "." << std::endl;
+	std::cout << GREEN << this->_name << " signed " << form.getFormName() << "." << RESET << std::endl;
 }
 
 
@@ -104,6 +104,6 @@ void Bureaucrat::signForm(Form &form) const
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &value)
 {
-	out << value.getName() << ", bureaucrat grade " << value.getGrade() << "." << std::endl;
+	out << PURPLE << value.getName() << ", bureaucrat grade " << value.getGrade() << "." << RESET << std::endl;
 	return out;
 }

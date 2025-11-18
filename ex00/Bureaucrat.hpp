@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:07 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/10/31 09:25:30 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:47:18 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include <string>
 # include <exception>
 # include <iostream>
-# define BLUE "\033[1;34m"
-# define RESET "\033[0m"
+# define BLUE	"\033[1;34m"
+# define RESET	"\033[0m"
+# define RED	"\033[1;31m"
+# define CYAN	"\033[1;36m"
 
 class Bureaucrat
 {

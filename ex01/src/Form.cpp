@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 09:38:00 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 15:20:43 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:56:01 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // ------------------------------------------------
 // OCF
 
+// why cant i initialized them in the function body?
+// => must initialize in the initializer list bcoz the attributes are consts/reference/dont have ctor
 Form::Form()
 : _formName("Miscellaneous Form"), _isItSigned(false), _gradeToSign(20), _gradeToExecute(10)
 {}
@@ -29,7 +31,6 @@ Form::Form(std::string formName, int gradeToSign, int gradeToExecute)
 }
 
 // need to initialize const attributes
-// why cant i initialized them in the function body?
 Form::Form(const Form &other)
 : _formName(other._formName), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
@@ -57,11 +58,11 @@ Form::~Form() {}
 void Form::beSigned(const Bureaucrat &person)
 {
 	if (person.getGrade() < 1)
-	throw Form::GradeTooHighException();
+		throw Form::GradeTooHighException();
 	if (person.getGrade() > 150 || person.getGrade() > this->_gradeToSign)
-	throw Form::GradeTooLowException();
+		throw Form::GradeTooLowException();
 	if (person.getGrade() <= this->_gradeToSign)
-	this->_isItSigned = true;
+		this->_isItSigned = true;
 }
 
 
@@ -87,10 +88,11 @@ const bool &Form::getIsItSigned() const { return this->_isItSigned; }
 
 std::ostream &operator<<(std::ostream &out, const Form &value)
 {
-	out	<< "Form: [" << value.getFormName() << "]"
+	out	<< CYAN
+		<< "Form: [" << value.getFormName() << "]"
 		<< ", sign grade: " << value.getGradeToSign()
 		<< ", execute grade: " << value.getGradeToExecute()
 		<< ", sign status: " << value.getIsItSigned()
-		<< "." << std::endl;
+		<< "." << RESET << std::endl;
 	return out;
 }

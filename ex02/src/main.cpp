@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 11:05:09 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:48:13 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,11 @@ int main()
 		Bureaucrat bC("Cindy", 60);
 		std::cout << bC;
 		Bureaucrat bD("Donald", 140);
+		std::cout << bD;
 	}
-	catch (std::exception &errMsg)
+	catch (const std::exception &errMsg)
 	{
-		std::cerr << errMsg.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 	
 	try
@@ -78,7 +79,7 @@ int main()
 	}
 	catch(const std::exception& errMsg)
 	{
-		std::cerr << errMsg.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 	
 	try
@@ -105,9 +106,9 @@ int main()
 		bA.executeForm(fP); // not signed yet
 		std::cout << "\nWill reach this text here because signForm and executeForm has their own catch" << std::endl;
 	}
-	catch (std::exception &errMsg)
+	catch (const std::exception &errMsg)
 	{
-		std::cerr << errMsg.what() << '\n';
+		std::cerr << RED << errMsg.what() << '\n' << RESET;
 	}
 	return 0;
 }

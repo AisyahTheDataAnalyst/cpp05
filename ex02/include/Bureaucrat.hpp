@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 15:27:07 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 08:59:27 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/18 18:55:34 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define PURPLE "\033[1;35m"
 # define CYAN "\033[1;36m"
 # define GREEN "\033[1;32m"
+# define RED	"\033[1;31m"
 
 class AForm;
 

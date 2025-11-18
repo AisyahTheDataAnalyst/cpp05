@@ -6,7 +6,7 @@
 #    By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/27 12:20:17 by aimokhta          #+#    #+#              #
-#    Updated: 2025/11/07 15:03:57 by aimokhta         ###   ########.fr        #
+#    Updated: 2025/11/18 19:01:28 by aimokhta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,6 @@ $(OBJ_FOLDER)/%.o : %.cpp
 
 clean:
 	rm -rf $(OBJ_FOLDER)
-	rm -rf *_shrubbery
 	@echo "${GREEN}----------CLEANED----------\n${RESET}"
 
 fclean : clean
