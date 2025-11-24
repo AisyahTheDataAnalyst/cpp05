@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/18 18:06:54 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:02:33 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main()
 		Bureaucrat bD("Donald", 50);
 		std::cout << bD;
 		Bureaucrat bE;
+		std::cout << bE;		
 		Bureaucrat bCC(bE);
 		std::cout << bC;
 		Bureaucrat bCAO(bCC);

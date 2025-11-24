@@ -37,6 +37,10 @@ obj_files/
 *.exe
 *.out
 *.app
+ex*
 
 # debug information files
 *.dwo
+
+# STFiles
+*_shrubbery

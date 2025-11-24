@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/18 18:48:13 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/24 09:45:58 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int main()
 		// Bureaucrat bE("Eleanor", 170); // grade too low
 		// Bureaucrat bF("Fiona", -2); // grade too high
 
-		// bD.signForm(fB);
-		bC.executeForm(fB); // not signed
+		bD.signForm(fB);
+		bC.executeForm(fB); // not signed if above is commented
 		std::cout << '\n';
 		bC.signForm(fR);
 		bD.executeForm(fR); // grade too low, should ask bB instead

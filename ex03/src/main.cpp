@@ -6,7 +6,7 @@
 /*   By: aimokhta <aimokhta@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:38:15 by aimokhta          #+#    #+#             */
-/*   Updated: 2025/11/07 14:58:22 by aimokhta         ###   ########.fr       */
+/*   Updated: 2025/11/24 09:47:48 by aimokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	border(std::string title, const char *colour)
 int main()
 {
 	Intern me;
-	AForm *forms;
+	AForm *form;
 
-	forms = me.makeForm("ShrubberyCreationForm", "HauntedHouse");
-	delete forms;
-	forms = me.makeForm("RobotomyRequestForm", "Sheldon Cooper");
-	delete forms;
-	forms = me.makeForm("ridicolous form", "witch");
-	delete forms;
-	forms = me.makeForm("PresidentialPardonForm", "cats");
-	delete forms;
+	form = me.makeForm("ShrubberyCreationForm", "HauntedHouse");
+	delete form;
+	form = me.makeForm("RobotomyRequestForm", "Sheldon Cooper");
+	delete form;
+	form = me.makeForm("ridicolous form", "witch");
+	delete form;
+	form = me.makeForm("PresidentialPardonForm", "cats");
+	delete form;
 }
